@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "removeComments": true,
+    "strict": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "outDir": "build",
+    "module": "commonjs",
+    "target": "esnext"
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "scripts", "build", "dist"]
+}
