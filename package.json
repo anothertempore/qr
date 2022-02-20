@@ -1,23 +1,31 @@
 {
   "name": "qr",
   "version": "0.0.1",
-  "description": "QR code scanner",
+  "description": "MacOS QR code scanner app",
   "main": "build/index.js",
-  "scripts": {
-    "dev": "pnpm clean && pnpm build && electron .",
-    "build": "pnpm clean && tsc src/*.ts --outDir build && copyfiles -f src/images/iconTemplate@2x.png build/images",
-    "clean": "rimraf build"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/anothertempore/qr.git"
-  },
   "author": "Kexin Li",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/anothertempore/qr/issues"
   },
   "homepage": "https://github.com/anothertempore/qr#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anothertempore/qr.git"
+  },
+  "scripts": {
+    "clean": "rimraf build",
+    "dev": "pnpm build:clean && electron .",
+    "build": "pnpm clean && tsc src/*.ts --outDir build && copyfiles -f src/images/iconTemplate@2x.png build/images",
+    "build:clean": "pnpm clean && pnpm build",
+    "pack": "pnpm build:clean && electron-builder --dir",
+    "dist": "pnpm build:clean && electron-builder",
+    "postinstall": "electron-builder install-app-deps"
+  },
+  "dependencies": {
+    "@zxing/library": "^0.19.1",
+    "pngjs": "^6.0.0"
+  },
   "devDependencies": {
     "@types/pngjs": "^6.0.1",
     "copyfiles": "^2.4.1",
@@ -27,8 +35,14 @@
     "rimraf": "^3.0.2",
     "typescript": "^4.5.5"
   },
-  "dependencies": {
-    "@zxing/library": "^0.19.1",
-    "pngjs": "^6.0.0"
+  "build": {
+    "appId": "com.anothertempore.qr",
+    "productName": "qr",
+    "mac": {
+      "category": "public.app-category.productivity",
+      "directories": {
+        "buildResources": "resources"
+      }
+    }
   }
 }
