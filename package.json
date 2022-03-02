@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "@zxing/library": "^0.19.1",
+    "dotenv": "^16.0.0",
     "pngjs": "^6.0.0"
   },
   "devDependencies": {
@@ -38,11 +39,17 @@
   "build": {
     "appId": "com.anothertempore.qr",
     "productName": "qr",
+    "files": [
+      "build/*"
+    ],
+    "directories": {
+      "buildResources": "resources"
+    },
     "mac": {
       "category": "public.app-category.productivity",
-      "directories": {
-        "buildResources": "resources"
-      }
-    }
+      "entitlements": "scripts/entitlements.mac.plist",
+      "entitlementsInherit": "scripts/entitlements.mac.plist"
+    },
+    "afterSign": "scripts/notarize.js"
   }
 }
