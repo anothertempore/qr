@@ -10,12 +10,14 @@ specifiers:
   electron-notarize: ^1.1.1
   pngjs: ^6.0.0
   rimraf: ^3.0.2
+  ts-custom-error: ^3.2.0
   typescript: ^4.5.5
 
 dependencies:
   '@zxing/library': 0.19.1
   dotenv: 16.0.0
   pngjs: 6.0.0
+  ts-custom-error: 3.2.0
 
 devDependencies:
   '@types/pngjs': 6.0.1
