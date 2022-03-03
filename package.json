@@ -39,7 +39,7 @@
   },
   "build": {
     "appId": "com.anothertempore.qr",
-    "productName": "qr",
+    "productName": "QR",
     "files": [
       "build/*"
     ],
