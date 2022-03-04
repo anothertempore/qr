@@ -13,10 +13,13 @@ import {
   globalShortcut,
   Menu,
   Notification,
+  shell,
   Tray,
 } from "electron";
 import { join } from "path";
 import { PNG } from "pngjs";
+// FIXME: doesn't work with nested folder in production mode
+// import { openSystemPreferences } from "./libs/check-screen-capture-permission";
 
 let tray;
 
@@ -101,10 +104,18 @@ function execScreenCapture() {
   });
 }
 
-app.on("ready", () => {
+async function openSystemPreferences() {
+  await shell.openExternal(
+    `x-apple.systempreferences:com.apple.preference.security?Privacy_ScreenCapture`
+  );
+}
+
+app.whenReady().then(() => {
   app.dock.hide();
 
   globalShortcut.register("Shift+F1", execScreenCapture);
 
   createTray();
+
+  openSystemPreferences();
 });
