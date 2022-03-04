@@ -21,7 +21,7 @@ import { PNG } from "pngjs";
 let tray;
 
 function createTray() {
-  tray = new Tray(join(__dirname, "images/iconTemplate@2x.png"));
+  tray = new Tray(join(__dirname, "iconTemplate@2x.png"));
   const menu = Menu.buildFromTemplate([
     {
       label: "Screenshot",

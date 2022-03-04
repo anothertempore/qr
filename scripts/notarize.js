@@ -14,7 +14,6 @@ exports.default = async function notarizing(context) {
   return await notarize({
     appBundleId,
     appPath,
-    // ascProvider,
     appleId,
     appleIdPassword,
   });

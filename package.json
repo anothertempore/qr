@@ -14,9 +14,9 @@
     "url": "git+https://github.com/anothertempore/qr.git"
   },
   "scripts": {
-    "clean": "rimraf build",
+    "clean": "rimraf build && rimraf dist",
     "dev": "pnpm build:clean && electron .",
-    "build": "pnpm clean && tsc src/*.ts --outDir build && copyfiles -f src/images/iconTemplate@2x.png build/images",
+    "build": "pnpm clean && tsc src/*.ts --outDir build && copyfiles -f src/iconTemplate@2x.png build",
     "build:clean": "pnpm clean && pnpm build",
     "pack": "pnpm build:clean && electron-builder --dir",
     "dist": "pnpm build:clean && electron-builder",
