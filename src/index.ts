@@ -18,13 +18,12 @@ import {
 } from "electron";
 import { join } from "path";
 import { PNG } from "pngjs";
-// FIXME: doesn't work with nested folder in production mode
-// import { openSystemPreferences } from "./libs/check-screen-capture-permission";
+import { openSystemPreferences } from "./libs/check-screen-capture-permission";
 
 let tray;
 
 function createTray() {
-  tray = new Tray(join(__dirname, "iconTemplate@2x.png"));
+  tray = new Tray(join(__dirname, "icon/iconTemplate@2x.png"));
   const menu = Menu.buildFromTemplate([
     {
       label: "Screenshot",
@@ -102,12 +101,6 @@ function execScreenCapture() {
       }).show();
     }
   });
-}
-
-async function openSystemPreferences() {
-  await shell.openExternal(
-    `x-apple.systempreferences:com.apple.preference.security?Privacy_ScreenCapture`
-  );
 }
 
 app.whenReady().then(() => {

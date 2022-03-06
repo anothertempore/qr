@@ -2,7 +2,7 @@
   "name": "qr",
   "version": "0.0.1",
   "description": "MacOS QR code scanner app",
-  "main": "build/index.js",
+  "main": "./build/index.js",
   "author": "Kexin Li",
   "license": "MIT",
   "bugs": {
@@ -16,7 +16,7 @@
   "scripts": {
     "clean": "rimraf build && rimraf dist",
     "dev": "pnpm build:clean && electron .",
-    "build": "pnpm clean && tsc src/*.ts --outDir build && copyfiles -f src/iconTemplate@2x.png build",
+    "build": "pnpm clean && tsc src/*.ts --outDir build && copyfiles -f src/icon/iconTemplate@2x.png build/icon",
     "build:clean": "pnpm clean && pnpm build",
     "pack": "pnpm build:clean && electron-builder --dir",
     "dist": "pnpm build:clean && electron-builder",
@@ -41,7 +41,7 @@
     "appId": "com.anothertempore.qr",
     "productName": "QR",
     "files": [
-      "build/*"
+      "build"
     ],
     "directories": {
       "buildResources": "resources"
