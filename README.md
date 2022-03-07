@@ -1,1 +1,1 @@
-# qr
+# QR to URL

@@ -13,12 +13,10 @@ import {
   globalShortcut,
   Menu,
   Notification,
-  shell,
   Tray,
 } from "electron";
 import { join } from "path";
 import { PNG } from "pngjs";
-import { openSystemPreferences } from "./libs/check-screen-capture-permission";
 
 let tray;
 
@@ -109,6 +107,4 @@ app.whenReady().then(() => {
   globalShortcut.register("Shift+F1", execScreenCapture);
 
   createTray();
-
-  openSystemPreferences();
 });
