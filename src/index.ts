@@ -25,7 +25,7 @@ function createTray() {
   const menu = Menu.buildFromTemplate([
     {
       label: "Screenshot",
-      accelerator: "Shift+F1",
+      accelerator: "F1",
       click: execScreenCapture,
     },
     {
@@ -42,10 +42,6 @@ function createTray() {
 }
 
 function execScreenCapture() {
-  // Clear clipboard
-  clipboard.clear();
-
-  // Take screenshot
   exec(`screencapture -s -x -c`, (error) => {
     if (error) {
       console.log(`exec error: ${error}`);
@@ -89,12 +85,12 @@ function execScreenCapture() {
       const text = res.getText();
       clipboard.writeText(text);
       new Notification({
-        title: "🎉 Succeed to copy result to clipboard",
+        title: "🎉 Copy URL to clipboard successfully",
         body: `${text}`,
       }).show();
     } catch (err) {
       new Notification({
-        title: "😕 Failed to copy result to clipboard",
+        title: "😕 Failed to copy URL to clipboard",
         body: "Sorry, we cannot recognize it :(",
       }).show();
     }
@@ -104,7 +100,7 @@ function execScreenCapture() {
 app.whenReady().then(() => {
   app.dock.hide();
 
-  globalShortcut.register("Shift+F1", execScreenCapture);
+  globalShortcut.register("F1", execScreenCapture);
 
   createTray();
 });
