@@ -39,7 +39,7 @@
   },
   "build": {
     "appId": "com.anothertempore.qr",
-    "productName": "QR",
+    "productName": "QR to URL",
     "files": [
       "build"
     ],
@@ -50,7 +50,8 @@
       "category": "public.app-category.productivity",
       "entitlements": "scripts/entitlements.mac.plist",
       "entitlementsInherit": "scripts/entitlements.mac.plist",
-      "target": "mas"
+      "target": "mas",
+      "provisioningProfile": "./QR_to_URL.provisionprofile"
     },
     "afterSign": "scripts/notarize.js"
   }
