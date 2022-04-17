@@ -1,6 +1,6 @@
 {
   "name": "qr",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "MacOS QR code scanner app",
   "main": "./build/index.js",
   "author": "Kexin Li",
@@ -29,13 +29,14 @@
     "ts-custom-error": "^3.2.0"
   },
   "devDependencies": {
+    "@replace5/app-builder-bin": "^3.5.9",
     "@types/pngjs": "^6.0.1",
     "copyfiles": "^2.4.1",
-    "electron": "^17.0.1",
-    "electron-builder": "^22.14.13",
-    "electron-notarize": "^1.1.1",
+    "electron": "^18.0.4",
+    "electron-builder": "^23.0.3",
+    "electron-notarize": "^1.2.1",
     "rimraf": "^3.0.2",
-    "typescript": "^4.5.5"
+    "typescript": "^4.6.3"
   },
   "build": {
     "appId": "com.anothertempore.qr",
@@ -47,11 +48,12 @@
       "buildResources": "resources"
     },
     "mac": {
+      "hardenedRuntime": "false",
       "category": "public.app-category.productivity",
       "entitlements": "scripts/entitlements.mac.plist",
       "entitlementsInherit": "scripts/entitlements.mac.plist",
       "target": "mas",
-      "provisioningProfile": "./QR_to_URL.provisionprofile"
+      "provisioningProfile": "scripts/QR_to_URL.provisionprofile"
     },
     "afterSign": "scripts/notarize.js"
   }
