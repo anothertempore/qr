@@ -103,4 +103,6 @@ app.whenReady().then(() => {
   globalShortcut.register("F1", execScreenCapture);
 
   createTray();
+
+  new Notification();
 });
